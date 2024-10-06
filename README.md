@@ -15,7 +15,7 @@ A **Laravel** backend application for managing a Wedding Dress Rental service. T
 ## Features
 
 - **User Authentication**: Registration, login, logout, and password management using Laravel Sanctum.
-- **Dress Catalog**: CRUD operations for wedding dresses.
+- **Dress Catalog**: Get list of available wedding dresses, View Details of an dress.
 - **Reservations**: Users can reserve dresses for specific dates.
 - **Password Management**: Users can change their passwords securely.
 - **Error Handling**: Comprehensive error responses with appropriate HTTP status codes.
