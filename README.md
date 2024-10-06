@@ -1,6 +1,6 @@
 # Wedding Dress Rental Backend
 
-A **Laravel** backend application for managing a Wedding Dress Rental service. This API handles user authentication, dress listings, reservations, and password management.
+A **Laravel** backend application for managing a Wedding Dress Rental service. This API handles user authentication, dress listings, and dress reservations.
 
 ## Table of Contents
 
@@ -45,7 +45,7 @@ Ensure you have the following installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/wedding-dress-rental-backend.git
+git clone https://github.com/Abd-Ulrahman-Aita/wedding-dress-rental.git
 cd wedding-dress-rental-backend
 ```
 
