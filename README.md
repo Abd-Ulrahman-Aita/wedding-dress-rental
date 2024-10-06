@@ -1,66 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Wedding Dress Rental Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A **Laravel** backend application for managing a Wedding Dress Rental service. This API handles user authentication, dress listings, reservations, and password management.
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Database Setup](#database-setup)
+- [Running the Application](#running-the-application)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **User Authentication**: Registration, login, logout, and password management using Laravel Sanctum.
+- **Dress Catalog**: CRUD operations for wedding dresses.
+- **Reservations**: Users can reserve dresses for specific dates.
+- **Password Management**: Users can change their passwords securely.
+- **Error Handling**: Comprehensive error responses with appropriate HTTP status codes.
+- **API Documentation**: Clear and organized API endpoints for easy integration.
 
-## Learning Laravel
+## Technologies Used
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend**:
+  - Laravel Framework
+  - PHP
+  - MySQL
+  - Laravel Sanctum (for API authentication)
+  - Composer
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Prerequisites
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Ensure you have the following installed on your machine:
 
-## Laravel Sponsors
+- **PHP**: Version 8.0 or later
+- **Composer**: Dependency Manager for PHP
+- **MySQL**: Database Management System
+- **Node.js and npm**: Required for frontend development (if applicable)
+- **Git**: Version control system
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Installation
 
-### Premium Partners
+### 1. Clone the Repository
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+git clone https://github.com/your-username/wedding-dress-rental-backend.git
+cd wedding-dress-rental-backend
+```
 
-## Contributing
+### 2. Install Dependencies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Use Composer to install PHP dependencies:
 
-## Code of Conduct
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. Environment Configuration
 
-## Security Vulnerabilities
+- Copy .env.example to .env:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+```
 
-## License
+- Generate Application Key:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+### 4. Configure Environment Variables
+
+Open the .env file and set up your environment variables:
+
+```bash
+APP_NAME=WeddingDressRental
+APP_ENV=local
+APP_KEY=base64:generated_key_here
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=wedding_dress_rental
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+
+SANCTUM_STATEFUL_DOMAINS=localhost
+SESSION_DOMAIN=localhost
+```
+
+### 5. Database Setup
+
+- Create Database:
+
+Ensure you have a MySQL database named wedding_dress_rental. You can create it using the MySQL command line or a GUI tool like phpMyAdmin.
+
+```bash
+CREATE DATABASE wedding_dress_rental;
+```
+
+- Run Migrations:
+
+Execute the migrations to create the necessary tables.
+
+```bash
+php artisan migrate
+```
+
+- Seed the Database: (Dresses) Important because don't have create dress functionality
+
+```bash
+php artisan db:seed
+```
+### 6. Install Laravel Sanctum
+
+Laravel Sanctum is already included if you followed the standard installation. Ensure it's properly set up by publishing the configuration and migrating:
+
+```bash
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+php artisan migrate
+```
+
+### 7. Serve the Application
+
+Start the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+The backend API will be accessible at http://localhost:8000.
